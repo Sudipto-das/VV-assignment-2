@@ -1,6 +1,7 @@
 <script>
+    import { fetchChapter } from "$lib/api/gita.js";
     import VerseModal from "./VerseModal.svelte";
-    import { createEventDispatcher } from "svelte";
+    import { createEventDispatcher,onMount } from "svelte";
     import chapter from "$lib/assets/bhagavad-gita-chapter-1.jpg";
     export let chapterNumber;
     let showModal = false
@@ -21,23 +22,20 @@
     }
 
     // Verse data
-    let verses = [
-        { id: "whole", label: "Whole Chapter" },
-        { id: 1, label: "1" },
-        { id: 2, label: "2" },
-        { id: 3, label: "3" },
-        { id: 4, label: "4" },
-        { id: 5, label: "5" },
-        { id: 6, label: "6" },
-        { id: 7, label: "7" },
-        { id: 8, label: "8" },
-        { id: 9, label: "9" },
-        { id: 10, label: "10" },
-        { id: 11, label: "11" },
-        { id: 12, label: "12" },
-        { id: 13, label: "13" },
-        { id: 14, label: "14" },
-    ];
+    let verses = []
+    let loading = true;
+    let error = null;
+    onMount(async () => {
+        console.log(chapterNumber)
+        try {
+            loading = true;
+            verses = await fetchChapter(chapterNumber);
+        } catch (err) {
+            error = err.message;
+        } finally {
+            loading = false;
+        }
+    });
 </script>
 
 <div
