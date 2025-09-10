@@ -26,11 +26,20 @@
 <div class="mb-10">
     <div class="mb-10 relative">
         <section
-            class="relative w-full h-96 bg-cover bg-center flex items-center justify-center text-white"
-            style="background-image: url({headerImage});"
+        class="relative w-full h-96 bg-cover bg-center flex justify-center "
+        style="background-image: url({headerImage});"
+      >
+        <!-- Semi-transparent strip -->
+        <div class="absolute top-10 left-0 w-full h-20 bg-amber-50/70 transform -translate-y-1/2"></div>
+      
+        <!-- Title -->
+        <h1
+          class="relative z-10 font-[Cinzel_Decorative] text-4xl md:text-7xl text-green-900 tracking-wide drop-shadow-lg"
         >
-            <h1 class="text-5xl font-serif text-shadow z-10">BHAGAVAD GITA</h1>
-        </section>
+          BHAGAVAD GITA
+        </h1>
+      </section>
+      
 
         <!-- Book Image floating above the header -->
         <div
