@@ -5,37 +5,45 @@
 
     const dispatch = createEventDispatcher();
     const close = () => dispatch("close");
-    
 </script>
 
 {#if show && verse}
-    <div class="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
-        <div class="bg-white rounded-xl shadow-lg max-w-lg w-full p-6 relative">
-            
+    <div class="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
+        <!-- Modal Box -->
+        <div
+            class="relative w-[95%] sm:w-[80%] md:w-[70%] lg:w-[60%] bg-[#f9d3a8] rounded-2xl shadow-2xl border border-gray-400 overflow-hidden"
+        >
             <!-- Close Button -->
             <button
-                class="absolute top-2 right-2 text-gray-600 hover:text-black text-xl"
+                class="absolute top-2 right-3 text-gray-700 hover:text-black text-2xl font-bold z-10"
                 on:click={close}
             >
                 ✕
             </button>
 
-            <!-- Verse Header -->
-            <h2 class="text-xl font-bold text-red-600 mb-3">
-                Chapter {verse.chapter_no} — Verse {verse.shlok_no}
-            </h2>
+           
 
-            <!-- Verse Content (HTML from API) -->
-            <div class="text-gray-700 prose max-w-none leading-relaxed">
+            <!-- Verse Content -->
+            <div
+                class="p-6 text-center font-serif leading-relaxed text-[17px] sm:text-lg md:text-xl space-y-3"
+            >
                 {@html verse.lyrics}
             </div>
 
-            <!-- Audio (if available) -->
+            <!-- Audio Section -->
             {#if verse.music}
-                <audio controls class="mt-4 w-full">
-                    <source src={"https://sanskrit.ie/" + verse.music} type="audio/mpeg" />
-                    Your browser does not support the audio tag.
-                </audio>
+                <div class="bg-[#3a2b18] px-4 py-3">
+                    <audio
+                        controls
+                        class="w-full rounded-lg bg-[#3a2b18] accent-red-600"
+                    >
+                        <source
+                            src={verse.music}
+                            type="audio/mpeg"
+                        />
+                        Your browser does not support the audio tag.
+                    </audio>
+                </div>
             {/if}
         </div>
     </div>

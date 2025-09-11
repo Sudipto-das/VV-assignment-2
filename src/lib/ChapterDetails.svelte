@@ -1,10 +1,10 @@
 <script>
     import { fetchChapter } from "$lib/api/gita.js";
     import VerseModal from "./VerseModal.svelte";
-    import { createEventDispatcher,onMount } from "svelte";
-    import chapter from "$lib/assets/bhagavad-gita-chapter-1.jpg";
+    import { createEventDispatcher, onMount } from "svelte";
+    import chapter from "$lib/assets/sletter.png";
     export let chapterNumber;
-    let showModal = false
+    let showModal = false;
     let selectedVerse = null;
     const dispatch = createEventDispatcher();
 
@@ -12,24 +12,24 @@
         dispatch("goBack");
     };
 
-    const openVerse = (verse) =>{
+    const openVerse = (verse) => {
         selectedVerse = verse;
-        showModal = true
-    }
-    const closeModal = () =>{
-        showModal = false
-        selectedVerse = null
-    }
+        showModal = true;
+    };
+    const closeModal = () => {
+        showModal = false;
+        selectedVerse = null;
+    };
 
     // Verse data
-    let verses = []
+    let verses = [];
     let loading = true;
     let error = null;
     onMount(async () => {
-        console.log(chapterNumber)
         try {
             loading = true;
             verses = await fetchChapter(chapterNumber);
+            console.log(verses);
         } catch (err) {
             error = err.message;
         } finally {
@@ -38,9 +38,7 @@
     });
 </script>
 
-<div
-    class="p-4 sm:p-6 bg-gradient-to-b from-yellow-50 to-amber-100 min-h-screen"
->
+<div class="p-4 sm:p-6 bg-transparent min-h-screen">
     <!-- Header Row -->
     <div class="flex items-center justify-between mb-6">
         <!-- Back Button (left) -->
@@ -70,24 +68,30 @@
     </div>
 
     <!-- Grid of verses -->
+    <!-- Grid of verses -->
     <div
-        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 justify-items-center"
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 justify-items-center"
     >
         {#each verses as verse}
             <div
-                class="relative w-24 h-32 sm:w-28 sm:h-36 md:w-32 md:h-40 bg-cover bg-center flex flex-col justify-center items-center text-center rounded-md shadow-md"
+                class="relative w-24 h-40 sm:w-32 sm:h-44 md:w-42 md:h-48 bg-cover bg-center flex flex-col items-center justify-center text-center cursor-pointer"
                 style="background-image: url({chapter});"
                 on:click={() => openVerse(verse)}
             >
+                <!-- Verse Label / Number -->
                 <span
-                    class="text-white font-semibold text-xs sm:text-sm md:text-base drop-shadow-md px-1"
+                    class="text-slate-50 text-sm sm:text-base md:text-xl font-semibold drop-shadow-lg"
                 >
-                    {verse.label}
+                    {#if verse.number === "0"}
+                        Whole <br /> Chapter
+                    {:else}
+                        {verse.number}
+                    {/if}
                 </span>
 
-                <!-- Play button -->
+                <!-- Play Button -->
                 <button
-                    class="absolute bottom-2 bg-white/80 rounded-full px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm hover:bg-red-500 hover:text-white transition"
+                    class="absolute bottom-3 flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/80 text-black hover:bg-red-500 hover:text-white transition shadow-md"
                 >
                     ▶
                 </button>

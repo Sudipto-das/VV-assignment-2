@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
-body {
-    font-family: 'Cinzel', serif;
-  }
-  
+h1,#footer-title{
+  font-family: 'edensor';
+}
+
+nav {
+  font-family: 'Lato';
+}

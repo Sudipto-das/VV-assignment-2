@@ -1,35 +1,57 @@
 <script>
-    import logo from '$lib/assets/logo.png'; // Your logo image path
+    import logo from '$lib/assets/footerlogo.png'; // Your logo image path
+    import background from '$lib/assets/footerimg.png'; 
     import { Facebook, Twitter, Youtube, Mail } from 'lucide-svelte';
 </script>
 
-<footer class="bg-green-900 text-gray-200 py-8 text-center">
-    <!-- Social Media Section -->
-    <div class="flex justify-center items-center gap-4 mb-4">
-        <span class="text-sm">Connect</span>
-        <a href="#"><Facebook class="w-6 h-6 hover:text-blue-500" /></a>
-        <a href="#"><Twitter class="w-6 h-6 hover:text-blue-400" /></a>
-        <a href="#"><Youtube class="w-6 h-6 hover:text-red-600" /></a>
-        <a href="#"><Mail class="w-6 h-6 hover:text-green-400" /></a>
-    </div>
+<footer
+  class="text-gray-200 py-8 text-center bg-cover bg-center bg-no-repeat"
+  style="background-image: url({background});"
+>
 
-    <!-- Logo -->
-    <div class="mb-4">
-        <img src={logo} alt="Logo" class="mx-auto h-20 w-42" />
-    </div>
+<div class="flex justify-center items-center gap-4 mb-6">
+    <span class="text-2xl font-[edensor]">Connect</span>
+  
+    <a href="#"
+      class="flex items-center justify-center w-10 h-10 border rounded-full bg-white/10 hover:bg-blue-500 transition-colors">
+      <Facebook class="w-5 h-5 text-white" />
+    </a>
+  
+    <a href="#"
+      class="flex items-center justify-center border w-10 h-10 rounded-full bg-white/10 hover:bg-blue-400 transition-colors">
+      <Twitter class="w-5 h-5 text-white" />
+    </a>
+  
+    <a href="#"
+      class="flex items-center justify-center border w-10 h-10 rounded-full bg-white/10 hover:bg-red-600 transition-colors">
+      <Youtube class="w-5 h-5 text-white" />
+    </a>
+  
+    <a href="#"
+      class="flex items-center justify-center border w-10 h-10 rounded-full bg-white/10 hover:bg-green-400 transition-colors">
+      <Mail class="w-5 h-5 text-white" />
+    </a>
+  </div>
+  
 
-    <!-- Title -->
-    <div class="text-4xl font-serif mb-2">
-        WELLBEING~SVASTI
-    </div>
+  <!-- Logo -->
+  <div class="mb-4">
+    <img src={logo} alt="Logo" class="mx-auto h-24 w-24" />
+  </div>
 
-    <!-- Copyright -->
-    <div class="text-sm mb-2">
-        © 2025 Rutger Kortenhorst. All Rights Reserved | Design and Developed by
-    </div>
+  <!-- Title -->
+  <div id="footer-title" class="text-3xl md:text-5xl mb-2 text-[#AEA17E]">
+    WELLBEING~SVASTI
+  </div>
 
-    <!-- Developer Credit -->
-    <div>
-        <a href="#" class="text-blue-400 hover:underline">Burning Desire Inclusive</a>
-    </div>
+  <!-- Copyright -->
+  <div class="text-sm mb-2">
+    © 2025 Rutger Kortenhorst. All Rights Reserved | Design and Developed by
+  </div>
+
+  <!-- Developer Credit -->
+  <div>
+    <a href="#" class="text-blue-400 hover:underline">Burning Desire Inclusive</a>
+  </div>
 </footer>
+

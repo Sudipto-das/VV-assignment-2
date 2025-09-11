@@ -62,15 +62,16 @@ Maintainability → Easy to scale and update individual parts without breaking t
 ### Home Page
 ![Home Page](./screenshots/home.png)
 ![Chapters](./screenshots/chapters.png)
-![verse_list](./screenshots/verse.png)
-![verse destails](./screenshots/verse-details.png)
+![verse_list](./screenshots/verselist.png)
+![verse destails](./screenshots/versemodal.png)
+![verse destails](./screenshots/footer.png)
 
 # Mobile 
-![Home Page](./screenshots/mob-nav.png)
+![Home Page](./screenshots/mob-home.png)
 ![Home Page](./screenshots/mob-footer.png)
 ![Home Page](./screenshots/mob-chapters.png)
-![Home Page](./screenshots/mob-verse.png)
-![Home Page](./screenshots/mob-verse-details.png)
+![Home Page](./screenshots/mob-verselist.png)
+![Home Page](./screenshots/mob-modal.png)
 
 
 

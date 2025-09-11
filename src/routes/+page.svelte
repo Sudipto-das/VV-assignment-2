@@ -4,7 +4,7 @@
     import Footer from "$lib/Footer.svelte";
 </script>
 
-<div class="bg-gradient-to-b from-yellow-50 to-amber-100">
+<div class="">
     <Navbar />
     <MainContent />
     <Footer />
